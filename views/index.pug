@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    title Home
+    script(src="/js/jquery.js")
+    script(src="/js/main.js")
+  body
+    h1 Person list
+    ul
+    each person in persons
+        li 
+            | #{person.name}
+            button(onclick="deleteUser('" + person.name + "')") X
+
+    form(action="/user", method="POST")
+        div
+            label Name: 
+            input(name="name")
+        div
+            label Age: 
+            input(name="age")
+        div
+            label Gender: 
+            input(name="gender")
+        div
+            input(type="submit" value="Add") 
+            

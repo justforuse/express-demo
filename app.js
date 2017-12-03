@@ -13,7 +13,9 @@ app.set("view engine", "pug");
 
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/test");
+mongoose.connect("mongodb://127.0.0.1:27017/test",{
+    useMongoClient: true
+});
 let db = mongoose.connection;
 
 db.on("error", () => {
@@ -77,13 +79,23 @@ app.post("/user", urlencodedParser, function (req, res) {
     }
     Person.create(newPerson, (err, data) => {
         if (err) {
+            console.log(err);
             return false;
         }
 
-        res.send("success");
+        res.send("add success");
     })
 })
 
+// Delete person
+app.delete("/user/:userName", function(req, res){
+    Person.remove({name: req.params.userName}, (err, data) => {
+        if(err){
+            return false;
+        }
+        res.send("delete success")
+    })
+})
 app.listen(3000, () => {
     console.log("server running on port 3000");
 })

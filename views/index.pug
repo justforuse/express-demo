@@ -10,9 +10,9 @@ html(lang='en')
     each person in persons
         li 
             | #{person.name}
-            button(onclick="deleteUser('" + person.name + "')") X
+            button(class="delete-btn" user-name=person.name) X
 
-    form(action="/user", method="POST")
+    form
         div
             label Name: 
             input(name="name")

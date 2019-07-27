@@ -8,20 +8,20 @@ html(lang='en')
     h1 Person list
     ul
     each person in persons
-        li 
-            | #{person.name}
-            button(class="delete-btn" user-name=person.name) X
+      li 
+        | #{person.name}
+        button(class="delete-btn" user-name=person.name) X
 
     form
-        div
-            label Name: 
-            input(name="name")
-        div
-            label Age: 
-            input(name="age")
-        div
-            label Gender: 
-            input(name="gender")
-        div
-            input(type="submit" value="Add") 
+      div
+        label Name: 
+        input(name="name")
+      div
+        label Age: 
+        input(name="age")
+      div
+        label Gender: 
+        input(name="gender")
+      div
+        input(type="submit" value="Add") 
             
